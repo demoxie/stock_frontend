@@ -1,7 +1,14 @@
 import React from 'react'
+import { Link, Redirect, useHistory } from 'react-router-dom'
 import '../assets/nav.css'
 export default function NavBar() {
+  const history = useHistory()
+  const handleLogout = () => {
+    ///window.location.href = '../components/SignIn'
+    return history.push('../signin')
+  }
   let url = '#'
+  let toLoginPage = ''
   return (
     <>
       <nav class="navbar navbar-default">
@@ -113,7 +120,7 @@ export default function NavBar() {
                 </li>
                 <li class="divider"></li>
                 <li>
-                  <a href={url}>
+                  <a href={url} onClick={handleLogout}>
                     <i class="material-icons">&#xE8AC;</i> Logout
                   </a>
                 </li>
